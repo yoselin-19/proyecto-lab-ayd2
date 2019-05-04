@@ -14,41 +14,24 @@
             <form class="form-horizontal" method="post" action="{{ url('/store') }}" name="basic_validate" id="basic_validate" novalidate="novalidate">
             {{ csrf_field() }}
               <div class="control-group">
-                <label class="control-label">ID</label>
+                <label class="control-label">Cuenta</label>
                 <div class="controls">
                   <input type="text" name="cuenta" id="cuenta">
                 </div>
               </div>
               <div class="control-group">
-                <label class="control-label">Nombre</label>
+                <label class="control-label">Saldo</label>
                 <div class="controls">
-                  <input type="text" name="nombre" id="nombre">
+                  <input type="text" name="saldo" id="saldo">
                 </div>
               </div>
               <div class="control-group">
-                <label class="control-label">Direccion</label>
+                <label class="control-label">CuentaHabiente</label>
                 <div class="controls">
-                  <input type="text" name="direccion" id="direccion">
+                  <input type="text" name="cuentahabiente" id="cuentahabiente">
                 </div>
               </div>
-              <div class="control-group">
-                <label class="control-label">Correo</label>
-                <div class="controls">
-                  <input type="text" name="email" id="email">
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label">Telefono</label>
-                <div class="controls">
-                  <input type="text" name="telefono" id="telefono">
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label">Fecha Nacimiento</label>
-                <div class="controls">
-                  <input type="text" name="nacimiento" id="nacimiento">
-                </div>
-              </div>
+         
 
               <div class="form-actions">
                 <input type="button" onclick="guardar();" value="Crear" class="btn btn-success">
@@ -69,20 +52,15 @@ $(document).ready(function(){
 });
 function guardar(){
 
-  var myurl = window.location.origin + '/store';
+  var myurl = window.location.origin + '/store_cuenta';
       var cuenta = $("#cuenta").val();
-      var nombre = $('#nombre').val();
-      var direccion = $('#direccion').val();
-      var correo = $('#email').val();
-      var fecha = $('#nacimiento').val();
-      var telefono = $('#telefono').val();
+      var saldo = $('#saldo').val();
+      var cuentahabiente = $('#cuentahabiente').val();
+ 
       var datos = {
           cuenta,
-          nombre,
-          correo,
-          direccion,
-          fecha,
-          telefono,
+          saldo,
+          cuentahabiente,
           _token: $('#basic_validate').find('[name=_token]').val()
       }
         $.ajax({
