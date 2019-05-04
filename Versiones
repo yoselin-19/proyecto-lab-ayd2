@@ -1,3 +1,34 @@
 Composer 1.6.3
 PHP 7.2.15
 
+entrar al contenedor de mariadb
+--->  sudo docker exec -it 4ac86a33c12e bash
+      mysql -h localhost -u my_user -p
+      password: my_password
+
+#####################################
+Create table cuentahabiente(
+    cuentahabiente INT PRIMARY KEY,
+    nombre varchar(20),
+    direccion varchar(20),
+    email varchar(20),
+    telefono varchar(20),
+    fecha_nacimiento varchar(20)
+
+
+    );
+
+Create table cuenta(
+    cuenta INT PRIMARY KEY,
+    cuentahabiente INT,
+    saldo INT,
+    FOREIGN KEY (cuentahabiente)
+        REFERENCES cuentahabiente(cuentahabiente)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION
+    );
+
+
+
+
+
